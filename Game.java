@@ -16,6 +16,8 @@ public class Game {
         gameSetup.drawStartGame();
         this.gameOver = false;
         this.blocks = gameSetup.getBlocks();
+
+        System.out.println(this.blocks.length);
         
         /* 
         new Block[numberOfBlocks];
