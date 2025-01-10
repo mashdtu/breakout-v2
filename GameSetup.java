@@ -2,19 +2,21 @@ import java.awt.Color;
 
 public class GameSetup 
 {
-    private int width = 30;
-    private int height = 7;
+    private int width = 60;
+    private int height = 16;
+
     private int[] pos = new int[] {152, 500};
 
     private int xSize = 9;
     private int ySize = 4; 
+    //private int walls = 3;
 
     //objects
     //private Block[][] nrOfTargets = new Block[xSize][ySize];
-    private Block[] nrOfTargets = new Block[xSize*ySize];
+    private Block[] block = new Block[xSize*ySize];
     private Platform platform;
     private Ball ball;
-    private Block[] wall = new Block[3];
+    //private Block[] wall = new Block[3];
 
 
     
@@ -28,7 +30,7 @@ public class GameSetup
         */
 
         drawBlocks();
-        drawWalls();
+        //drawWalls();
         drawPlatform();
         drawBall();
     }
@@ -36,36 +38,41 @@ public class GameSetup
 
     private void drawBlocks()
     {
-        for(int i = 0; i < ySize*2; i++)
+        int counter = 0;
+        for(int i = 0; i < ySize; i++)
         {
-            for(int j = 0; j < xSize; j++, i++)
+            //System.out.println(j+i);
+            for(int j = 0; j < xSize; j++)
             {
-                nrOfTargets[i] = new Block(pos[0] + j * 62 , pos[1] - i * 35 , width , height, 
+                System.out.println(j+i);
+                block[counter] = new Block(width , height , pos[0] + j * 62 , pos[1] - i * 35, 
                 new Color(120, 120, 120));
+                counter++;
             }
         }
     }
     
+    /*
     private void drawWalls()
     {  
         StdDraw.setPenColor(StdDraw.BLACK);
-        wall[0] = new Block(100, 350, 5, 200, new Color(0,0,0));
-        wall[1] = new Block(700, 350, 5, 200,new Color(0,0,0));
-        wall[2] = new Block(400, 545, 300, 5,new Color(0,0,0));
+        block[xSize*ySize-1] = new Block(5, 200, 100, 350, new Color(0,0,0));
+        block[xSize*ySize-1+1] = new Block(5, 200, 700, 350,new Color(0,0,0));
+        block[xSize*ySize-1+2] = new Block(300, 5, 400, 545,new Color(0,0,0));
 
 
-        /* 
+       
         for(int i = 0; i < wall.length; i++)
         {
             wall[i].drawWall();
         }
-        */
+        
 
         //StdDraw.filledRectangle(90, 350, 5, 200);
         //StdDraw.filledRectangle(740, 350, 5, 200);
         //StdDraw.filledRectangle(410, 545, 325, 5);
     }
-    
+    */
 
     private void drawPlatform()
     {
@@ -81,14 +88,14 @@ public class GameSetup
 
     public Block[] getBlocks()
     {
-        return nrOfTargets;
+        return block;
     }
-
+    /* 
     public Block[] getWalls()
     {
         return wall;
     }
-
+    */
     public Platform getPlatform()
     {
         return platform;

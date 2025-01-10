@@ -6,7 +6,7 @@ public class Game {
     private final Platform platform;
     private final Ball ball;
     private boolean gameOver;
-    public static final int width = 600;
+    public static final int width = 800;
     public static final int height = 600;
 
     public Game() {
@@ -14,6 +14,7 @@ public class Game {
         
         GameSetup gameSetup = new GameSetup();
         gameSetup.drawStartGame();
+
         this.gameOver = false;
         this.blocks = gameSetup.getBlocks();
 
