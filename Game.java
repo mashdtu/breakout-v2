@@ -6,7 +6,7 @@ public class Game {
     private final Platform platform;
     private final Ball ball;
     private boolean gameOver;
-    public static final int width = 800;
+    public static final int width = 600;
     public static final int height = 600;
 
     public Game() {
@@ -25,14 +25,9 @@ public class Game {
         this.ball = new Ball(5, 300, 300, new Color(120, 120, 120), 0, -2);
 
         // Set canvas size and x and y scales.
-        StdDraw.setCanvasSize(800, 600);
+        StdDraw.setCanvasSize(this.width, this.height);
         StdDraw.setXscale(0, this.width);
         StdDraw.setYscale(0, this.height);
-        
-        // Draw all the blocks one time as they are static objects.
-        for (Block block : this.blocks) {
-            block.draw();
-        }
 
         gameLoop();
     }
@@ -40,12 +35,12 @@ public class Game {
     private void gameLoop() {
 
         // Check if the user has pressed a or d and move the platform accordingly.
-        if (StdDraw.isKeyPressed(65)) {
-            this.platform.moveX(-2);
-        }
-        if (StdDraw.isKeyPressed(68)) {
-            this.platform.moveX(2);
-        }
+        //if (StdDraw.isKeyPressed(65)) {
+        //    this.platform.moveX(-2);
+        //}
+        //if (StdDraw.isKeyPressed(68)) {
+        //    this.platform.moveX(2);
+        //}
 
         // Check for collisions with the ball and the walls and bounce the ball.
         this.ball.bounceOffWalls();
@@ -65,8 +60,14 @@ public class Game {
         
         // Draw the platform and ball.
         StdDraw.show(0);
+        StdDraw.clear(StdDraw.WHITE);
         this.ball.draw();
         this.platform.draw();
+        for (Block block : this.blocks) {
+            if (block.exists()) {
+                block.draw();
+            }
+        }
         StdDraw.show(0);
 
         // Check if the ball is out of bounds and end the game if it is.

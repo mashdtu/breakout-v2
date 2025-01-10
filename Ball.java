@@ -42,7 +42,6 @@ public class Ball extends Object2D{
         // Bounce the ball off the walls by reversing the x or y velocity.
         if (this.x <= 0) {
             this.bounceX();
-            this.x = -this.x + 1;
         }
         if (this.x >= Game.width) {
             this.bounceX();

@@ -35,12 +35,22 @@ public class Object2D {
 
     public int getY() {
         // Return the y coordinate of the object.
-        return 0;
+        return this.y;
     }
 
     public int getX() {
         // Return the x coordinate of the object.
-        return 0;
+        return this.x;
+    }
+
+    public void setX(int x) {
+        // Set the x coordinate of the object.
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        // Set the y coordinate of the object.
+        this.y = y;
     }
 
     public int getWidth() {
