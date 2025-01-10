@@ -11,8 +11,13 @@ public class Game {
 
     public Game() {
         // Initialize the game by creating an array of blocks and defining the platform and ball.
+        
+        GameSetup gameSetup = new GameSetup();
         this.gameOver = false;
-        this.blocks = new Block[numberOfBlocks];
+        this.blocks = gameSetup.getBlocks();
+        
+        /* 
+        new Block[numberOfBlocks];
         for (int i = 0; i < 5; i++) {
             this.blocks[i] = new Block(50, 20, 100 + i * 100, 500, new Color(120, 120, 120));
         }
@@ -20,9 +25,16 @@ public class Game {
         for (int i = 0; i < 5; i++) {
             this.blocks[5 + i] = new Block(50, 20, 100 + i * 100, 550, new Color(120, 120, 120));
         }
+        */
 
-        this.platform = new Platform(100, 10, 300, 100, new Color(120, 120, 120));
-        this.ball = new Ball(5, 300, 300, new Color(120, 120, 120), 0, -2);
+
+        this.platform = gameSetup.getPlatform();
+
+        //new Platform(100, 10, 300, 100, new Color(120, 120, 120));
+
+        this.ball = gameSetup.getBall();
+        
+        //new Ball(5, 300, 300, new Color(120, 120, 120), 0, -2);
 
         // Set canvas size and x and y scales.
         StdDraw.setCanvasSize(this.width, this.height);
