@@ -13,6 +13,7 @@ public class Game {
         // Initialize the game by creating an array of blocks and defining the platform and ball.
         
         GameSetup gameSetup = new GameSetup();
+        gameSetup.drawStartGame();
         this.gameOver = false;
         this.blocks = gameSetup.getBlocks();
         
