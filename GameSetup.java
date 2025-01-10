@@ -36,9 +36,9 @@ public class GameSetup
 
     private void drawBlocks()
     {
-        for(int i = 0; i < ySize; i++)
+        for(int i = 0; i < ySize*2; i++)
         {
-            for(int j = 0; j < xSize; i++)
+            for(int j = 0; j < xSize; j++, i++)
             {
                 nrOfTargets[i] = new Block(pos[0] + j * 62 , pos[1] - i * 35 , width , height, 
                 new Color(120, 120, 120));
